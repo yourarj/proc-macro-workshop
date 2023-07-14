@@ -2,7 +2,10 @@
 ✅
 Have completed the workshop examples.
 
-Solution to each test can be tracked by step by following commit on master branch
+Solution to each test can be tracked by step by step following commit on master branch
+
+
+## ----- original README.md follows -------
 
 # Rust Latam: procedural macros workshop
 
