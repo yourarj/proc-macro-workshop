@@ -1,3 +1,9 @@
+# Excercise Completion: yourarj 🤓
+✅
+Have completed the workshop examples.
+
+Solution to each test can be tracked by step by following commit on master branch
+
 # Rust Latam: procedural macros workshop
 
 *This repo contains a selection of projects designed to learn to write Rust
