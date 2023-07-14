@@ -105,7 +105,7 @@ pub(crate) fn render(builder_def: syn::Result<BuilderDef>) -> TokenStream {
         }
 
         impl #builder_name {
-            pub fn build(&self) -> Result<#target_name, Box<dyn std::error::Error>> {
+            pub fn build(&self) -> core::result::Result<#target_name, std::boxed::Box<dyn std::error::Error>> {
                 Ok(#target_name {
                     #(#build_functions),*
                 })
