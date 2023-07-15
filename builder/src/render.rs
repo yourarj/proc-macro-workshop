@@ -1,7 +1,9 @@
 use proc_macro::TokenStream;
 use quote::quote;
 
-use crate::{macro_util::is_option, parse::BuilderDef};
+use helper::is_option;
+
+use crate::parse::BuilderDef;
 
 pub(crate) fn render(builder_def: syn::Result<BuilderDef>) -> TokenStream {
     let def = match builder_def {

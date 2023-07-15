@@ -1,7 +1,7 @@
 use quote::spanned::Spanned;
 use syn::Error;
 
-use crate::macro_util::{is_option, take_first_builder_attribute_from_list, unwrap_contained_type};
+use helper::{is_option, take_first_matched_attribute_from_list, unwrap_contained_type};
 
 mod keyword {
     syn::custom_keyword!(builder);
@@ -77,7 +77,7 @@ impl BuilderDef {
             let mut is_each = false;
             let mut f_each_setter = None;
             let b_attr_opt: Option<BuilderAttr> =
-                take_first_builder_attribute_from_list(&mut named_field.attrs)?;
+                take_first_matched_attribute_from_list(&mut named_field.attrs, "builder")?;
 
             if let Some(BuilderAttr::Builder(sp, getter_str)) = b_attr_opt {
                 is_each = true;

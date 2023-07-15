@@ -56,8 +56,9 @@ pub fn unwrap_contained_type(opt: &syn::Type) -> Option<syn::Ident> {
 }
 
 // get first attribute from list
-pub fn take_first_builder_attribute_from_list<P>(
+pub fn take_first_matched_attribute_from_list<P>(
     attrs: &mut std::vec::Vec<syn::Attribute>,
+    inert_element: &str,
 ) -> syn::Result<Option<P>>
 where
     P: syn::parse::Parse,
@@ -68,7 +69,7 @@ where
         attr.path()
             .segments
             .first()
-            .map_or(false, |segment| segment.ident == "builder")
+            .map_or(false, |segment| segment.ident == inert_element)
     }) {
         let pallet_attr = attrs.remove(index);
         Ok(Some(syn::parse2(pallet_attr.into_token_stream())?))
